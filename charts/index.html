@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Highcharts Example with REST API</title>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/drag-panes.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/stock/indicators/indicators.js"></script>
+    <script src="https://code.highcharts.com/stock/indicators/volume-by-price.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     loadEarningChart();
+        // });
+
+        function loadChart(resp){
+            let response = JSON.parse(resp);
+            if(response.chartType == "hourly"){
+                return loadHourlyChart(response);
+            }
+            if(response.chartType == "stock"){
+                return loadStockChart(response);
+            }
+            if(response.chartType == "recommendation"){
+                return loadRecommendationChart(response);
+            }
+            if(response.chartType == "earning"){
+                return loadEarningChart(response);
+            }
+        }
+
+        function loadHourlyChart(response){
+            let data = response.chartResponse;
+            let stock = response.stock
+            let quote = response.quote
+            let data1 = data["results"].map((d) => {
+                return [d.t, d.c];
+            });
+            let options = {
+                time: {
+                    timezone: 'America/Los_Angeles'
+                },
+                chart: {
+                    type: 'line',
+                    backgroundColor: 'transparent',
+                },
+                rangeSelector: {
+                    enabled: false
+                },
+                navigator: {
+                    enabled: false
+                },
+                legend:{ enabled:false},
+                title:{
+                    enabled: false,
+                    text: null
+                },
+                subtitle: {
+                    useHtml: true,
+                    text: `<b style="color: #939292">${stock} Hourly Price Variation</b>`,
+                },
+                yAxis: {
+                    title: {
+                        text: null
+                    },
+                    mainGridLineWidth: 0,
+                    minorGridLineColor: '#f0f0f0',
+                    showLastLabel: false,
+                    labels: {
+                        align: 'right',
+                        y: -2,
+                        x: 0,
+                        style: {
+                            fontSize: 'x-small',
+                        }
+                    },
+                    opposite: true
+                },
+                xAxis: {
+                    type: 'datetime',
+                },
+                series: [{
+                    type: 'line',
+                    name: stock,
+                    data: data1,
+                    color: response.quote >0 ? 'green' : 'red',
+                    tooltip: {
+                        valueDecimals: 2
+                    }
+                }]
+            }
+            Highcharts.stockChart('container', options);
+
+        }
+
+        function loadStockChart(response) {
+            let data = response.chartResponse;
+            let stock = response.stock
+            const volume = data.results.map((d) => [d.t, d.v]);
+            const ohlc = data.results.map((d) => [d.t, d.o, d.h, d.l, d.c]);
+            let options = {
+                rangeSelector: {
+                    selected: 2
+                },
+                title: {
+                    text: `${stock} Historical`
+                },
+                subtitle: {
+                    text: 'With SMA and Volume by Price technical indicators'
+                },
+
+                yAxis: [{
+                    startOnTick: false,
+                    endOnTick: false,
+                    labels: {
+                        align: 'right',
+                        x: -3
+                    },
+                    title: {
+                        text: 'OHLC'
+                    },
+                    height: '60%',
+                    lineWidth: 2,
+                    resize: {
+                        enabled: true
+                    }
+                }, {
+                    labels: {
+                        align: 'right',
+                        x: -3
+                    },
+                    title: {
+                        text: 'Volume'
+                    },
+                    top: '65%',
+                    height: '35%',
+                    offset: 0,
+                    lineWidth: 2
+                }],
+
+                tooltip: {
+                    split: true
+                },
+
+                plotOptions: {
+                    /*             series: {
+                                    dataGrouping: {
+                                        units: groupingUnits
+                                    }
+                                } */
+                },
+
+                series: [{
+                    type: 'candlestick',
+                    name: stock,
+                    id: stock.toLowerCase(),
+                    zIndex: 2,
+                    data: ohlc
+                }, {
+                    type: 'column',
+                    name: 'Volume',
+                    id: 'volume',
+                    data: volume,
+                    yAxis: 1
+                }, {
+                    type: 'vbp',
+                    linkedTo: stock.toLowerCase(),
+                    params: {
+                        volumeSeriesID: 'volume'
+                    },
+                    dataLabels: {
+                        enabled: false
+                    },
+                    zoneLines: {
+                        enabled: false
+                    }
+                }, {
+                    type: 'sma',
+                    linkedTo: stock.toLowerCase(),
+                    zIndex: 1,
+                    marker: {
+                        enabled: false
+                    }
+                }]
+            }
+            Highcharts.stockChart('container', options);
+        }
+
+        function loadRecommendationChart(response){
+            let data = response.recommends;
+            let stock = response.stock
+            let options = {
+                chart: {
+                    type: 'column',
+                    backgroundColor: 'transparent',
+                    style:{
+                        fontSize: "small"
+                    }
+                },
+                title: {
+                    text: '<span class="h6 fw-medium">Recommendation Trends<span>',
+                    useHTML: true
+                },
+                xAxis: {
+                    categories: data.map((d) => d.period.slice(0,-3)),
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: '#Analysis'
+                    },
+                },
+                legend: {
+                    verticalAlign: 'bottom',
+                },
+                plotOptions: {
+                    column: {
+                        stacking: 'normal',
+                        dataLabels: {
+                            enabled: true
+                        }
+                    }
+                },
+                exporting: {
+                    enabled: false
+                },
+                series: [{
+                    name: 'Strong Buy',
+                    data: data.map((d) => d.strongBuy),
+                    color: "#197c42",
+                }, {
+                    name: 'Buy',
+                    data: data.map((d) => d.buy),
+                    color: "#21c15e",
+                }, {
+                    name: 'Hold',
+                    data: data.map((d) => d.hold),
+                    color: "#c2961f"
+                }, {
+                    name: 'Sell',
+                    data: data.map((d) => d.sell),
+                    color: "#f66566"
+                }, {
+                    name: 'Strong Sell',
+                    data: data.map((d) => d.strongSell),
+                    color: "#8b3736"
+                }]
+            }
+            Highcharts.chart('container', options);
+        }
+
+        function loadEarningChart(response){
+            let data = response.earnings;
+            let stock = response.stock
+            let x_labels = data.map((x) => [x.period, `Surprise: ${x.surprise}`]);
+            let minEstimate = Math.min(...data.map((x) => x.estimate));
+            let minActual = Math.min(...data.map((x) => x.actual));
+            let totalMin = Math.min(minEstimate, minActual);
+
+            let options = {
+                title: {
+                    text: 'Historical EPS Surprises'
+                },
+                chart: {
+                    type: 'spline',
+                    backgroundColor: 'transparent',
+                    style:{
+                        fontSize: "small"
+                    }
+                },
+                xAxis: [{
+                    categories: x_labels,
+                    labels: {
+                        formatter: function() {
+                            return `<span>${this.value[0]}</span><br><span>${this.value[1]}</span>`},
+                        tickLength: 10
+                    }},{}],
+                yAxis: {
+                    title: {
+                        text: 'Quarterly EPS'
+                    },
+                    min: totalMin,
+                },
+                tooltip: {
+                    shared: true,
+                    crosshairs: false,
+                    formatter: function () {
+                        return this.points.reduce(function (s, point) {
+                            return s + '<br/><span style="color:' + point.series.color + ';">\u25CF </span>' + point.series.name + ': <b>' + point.y + '</b>';
+                        }, '<p style="font-size: x-small">'+ this.x[0] + "<br/>" + this.x[1] + '</P>');
+                    },
+                    valueDecimals: 2,
+                },
+                series: [
+                    {
+                        name: 'Actual',
+                        type:'spline',
+                        data: data.map((x) => x.actual),
+                        color: '#30b8fd'
+                    },
+                    {
+                        name: 'Estimate',
+                        type:'spline',
+                        data: data.map((x) => x.estimate),
+                        color: '#625ac8'
+                    }]
+            }
+            Highcharts.chart('container', options);
+
+
+
+        }
+
+
+    </script>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container" style="width:100%; height:100%;"></div>
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "2F97EB26-DE37-4553-946C-7BD7B060B25D"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4976F300-77F2-4F2E-9E55-78670ED96CA1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Stock Search/ViewModels/WatchlistViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "WatchlistViewModel"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "4976F300-77F2-4F2E-9E55-78670ED96CA1 - 7296ffa20f956152"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Stock_Search.WatchlistViewModel.deinit"
+                  moduleName = "Stock Search"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bablooyerram/Documents/USC/Academics/stockSearchApp/Stock%20Search/ViewModels/WatchlistViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "4976F300-77F2-4F2E-9E55-78670ED96CA1 - 3943cb7474a573ef"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Stock_Search.WatchlistViewModel.__deallocating_deinit"
+                  moduleName = "Stock Search"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bablooyerram/Documents/USC/Academics/stockSearchApp/Stock%20Search/ViewModels/WatchlistViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "4976F300-77F2-4F2E-9E55-78670ED96CA1 - 3fcc67e808f91c32"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Stock_Search.WatchlistViewModel.deinit"
+                  moduleName = "Stock Search"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bablooyerram/Documents/USC/Academics/Projects/stockSearchApp/Stock%20Search/ViewModels/WatchlistViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "4976F300-77F2-4F2E-9E55-78670ED96CA1 - 7419533e73c90e8f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Stock_Search.WatchlistViewModel.__deallocating_deinit"
+                  moduleName = "Stock Search"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bablooyerram/Documents/USC/Academics/Projects/stockSearchApp/Stock%20Search/ViewModels/WatchlistViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6300700D-CE47-4F75-98C2-91B3698AC527"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Stock Search/ViewModels/AutoCompleteViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "search(query:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6300700D-CE47-4F75-98C2-91B3698AC527 - 3196ccdb9db72fae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Stock_Search.AutoCompleteViewModel.search(query: Swift.String) -&gt; ()"
+                  moduleName = "Stock Search"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bablooyerram/Documents/USC/Academics/stockSearchApp/Stock%20Search/ViewModels/AutoCompleteViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "1416">
+               </Location>
+               <Location
+                  uuid = "6300700D-CE47-4F75-98C2-91B3698AC527 - 3cf6b2906fe0b6a6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Stock_Search.AutoCompleteViewModel.search(query: Swift.String) -&gt; ()"
+                  moduleName = "Stock Search"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bablooyerram/Documents/USC/Academics/stockSearchApp/Stock%20Search/ViewModels/AutoCompleteViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "1496">
+               </Location>
+               <Location
+                  uuid = "6300700D-CE47-4F75-98C2-91B3698AC527 - 3196ccdb9db72fae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Stock_Search.AutoCompleteViewModel.search(query: Swift.String) -&gt; ()"
+                  moduleName = "Stock Search"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bablooyerram/Documents/USC/Academics/stockSearchApp/Stock%20Search/ViewModels/AutoCompleteViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "220">
+               </Location>
+               <Location
+                  uuid = "6300700D-CE47-4F75-98C2-91B3698AC527 - 3cf6b2906fe0b6a6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Stock_Search.AutoCompleteViewModel.search(query: Swift.String) -&gt; ()"
+                  moduleName = "Stock Search"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bablooyerram/Documents/USC/Academics/stockSearchApp/Stock%20Search/ViewModels/AutoCompleteViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "1100">
+               </Location>
+               <Location
+                  uuid = "6300700D-CE47-4F75-98C2-91B3698AC527 - 3196ccdb9db72fae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Stock_Search.AutoCompleteViewModel.search(query: Swift.String) -&gt; ()"
+                  moduleName = "Stock Search"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bablooyerram/Documents/USC/Academics/stockSearchApp/Stock%20Search/ViewModels/AutoCompleteViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "524">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "055FDC78-A300-46E1-9286-178F0D742B1D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Stock Search/ViewModels/AutoCompleteViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "search(query:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "055FDC78-A300-46E1-9286-178F0D742B1D - 3196ccdb9db72eb1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Stock_Search.AutoCompleteViewModel.search(query: Swift.String) -&gt; ()"
+                  moduleName = "Stock Search"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bablooyerram/Documents/USC/Academics/stockSearchApp/Stock%20Search/ViewModels/AutoCompleteViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "780">
+               </Location>
+               <Location
+                  uuid = "055FDC78-A300-46E1-9286-178F0D742B1D - 3196ccdb9db72eb1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Stock_Search.AutoCompleteViewModel.search(query: Swift.String) -&gt; ()"
+                  moduleName = "Stock Search"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bablooyerram/Documents/USC/Academics/stockSearchApp/Stock%20Search/ViewModels/AutoCompleteViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "876">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FA153D91-DDF5-4DE5-BBBB-A0D51E6B1260"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Stock Search/Views/NewsView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "timeSince(_:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F8EE64DF-5242-4081-9EBE-4F894F80C5A2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Stock Search/Views/Sheets/PurchaseView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5759A48A-35D8-486F-91E4-BA8536E21E12"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Stock Search/Views/SecondScreen/NewsView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "5759A48A-35D8-486F-91E4-BA8536E21E12 - fec7f0fc71accba8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.sheet&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(isPresented: SwiftUI.Binding&lt;Swift.Bool&gt;, onDismiss: Swift.Optional&lt;() -&gt; ()&gt;, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0 in Stock_Search.NewsView.body.getter : some"
+                  moduleName = "Stock Search"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bablooyerram/Documents/USC/Academics/Projects/stockSearchApp/Stock%20Search/Views/SecondScreen/NewsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "656">
+               </Location>
+               <Location
+                  uuid = "5759A48A-35D8-486F-91E4-BA8536E21E12 - 78978ded75be567d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Text, &lt;&lt;opaque return type of SwiftUI.View.onTapGesture(count: Swift.Int, perform: () -&gt; ()) -&gt; some&gt;&gt;.0, SwiftUI.Divider, SwiftUI.ForEach&lt;Swift.ArraySlice&lt;Stock_Search.News&gt;, Swift.Int, &lt;&lt;opaque return type of SwiftUI.View.onTapGesture(count: Swift.Int, perform: () -&gt; ()) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.sheet&lt;&#x3c4;_0_0 where &#x3c4;_1_0: SwiftUI.View&gt;(isPresented: SwiftUI.Binding&lt;Swift.Bool&gt;, onDismiss: Swift.Optional&lt;() -&gt; ()&gt;, content: () -&gt; &#x3c4;_1_0) -&gt; some&gt;&gt;.0 in Stock_Search.NewsView.body.getter : some"
+                  moduleName = "Stock Search"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bablooyerram/Documents/USC/Academics/Projects/stockSearchApp/Stock%20Search/Views/SecondScreen/NewsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "472">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
