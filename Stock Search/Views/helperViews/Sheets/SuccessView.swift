@@ -23,7 +23,7 @@ struct SuccessView: View {
                     Text(message)
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
-                        .multilineTextAlignment(.center)
+                        .multilineTextAlignment(.center).padding(.horizontal, 30)
                     
                     Spacer()
                     

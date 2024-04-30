@@ -13,7 +13,8 @@ struct WatchlistView: View {
     var body: some View {
             Section(header: Text("Favorites")) {
                 ForEach(wl.watchlist.stocks, id: \.self) { stock in
-                    WatchlistRow(stock: stock, pf: pf, wl: wl)
+                    WatchlistRow(stock: stock, pf: pf, wl: wl).alignmentGuide(.listRowSeparatorLeading) { viewDimensions in
+                        return viewDimensions[.listRowSeparatorLeading] + 190}
                 }.onMove(perform: { indices, newOffset in
                     wl.move(fromOffsets: indices, toOffset: newOffset)
                 }).onDelete(perform: { indexSet in
@@ -33,23 +34,43 @@ struct WatchlistRow: View {
             HStack{
                     VStack(alignment: .leading) {
                         Text(stock.ticker)
-                            .font(.headline)
+                            .font(.title3)
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                         Text(stock.name)
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
+                            .font(.headline)
+                            .foregroundColor(.gray).fontWeight(.regular)
                     }
                     Spacer()
                     VStack(alignment: .trailing) {
-                        Text(String(format: "%.2f", stock.quote.c))
+                        Text(String(format: "$%.2f", stock.quote.c))
                             .font(.headline)
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                        HStack{
-                            Image(systemName: stock.quote.d >= 0 ? "arrow.up.right" : "arrow.down.right")
-                            Text("$\(stock.quote.d.formatted()) (\(String(format: "%.2f", stock.quote.dp))%)")
-                                .font(.subheadline)
-                            
-                        }.foregroundColor(stock.quote.d >= 0 ? .green : .red )
+                        
+                        if stock.quote.d > 0{
+                            HStack{
+                                Image(systemName: "arrow.up.right").font(.title3).padding(.trailing, 5)
+                                Text("$\(stock.quote.d.formatted()) (\(String(format: "%.2f", stock.quote.dp))%)")
+                                    .font(.headline)
+                                
+                            }.foregroundColor(.green)
+                        }
+                        else if stock.quote.d < 0{
+                            HStack{
+                                Image(systemName: "arrow.down.right").font(.title3).padding(.trailing, 5)
+                                Text("$\(stock.quote.d.formatted()) (\(String(format: "%.2f", stock.quote.dp))%)")
+                                    .font(.headline)
+                                
+                            }.foregroundColor(.red )
+                        }
+                        else  {
+                            HStack{
+                                Image(systemName:"minus").font(.title3).padding(.trailing, 5)
+                                Text("$\(stock.quote.d.formatted()) (\(String(format: "%.2f", stock.quote.dp))%)")
+                                    .font(.headline)
+                                
+                            }.foregroundColor(.gray)
+                        }
+                        
                     }
                 }
         }

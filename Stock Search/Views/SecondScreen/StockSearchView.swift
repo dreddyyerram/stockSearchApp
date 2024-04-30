@@ -23,32 +23,38 @@ struct StockSearchView: View {
                 if viewModel.isLoading {
                         ProgressView("Fetching Data...")
                 } else {
-                    ScrollView{
-                        DetailsView(viewModel:viewModel)
-                        TabView(selection: $selectedTab) {
+                    ScrollView(){
+                        DetailsView(viewModel:viewModel).padding(.bottom, 0)
+                        TabView() {
+                            VStack(spacing: 0){
+                                HourlyChartView(viewModel: viewModel).frame(height: 435).padding(0)
+                                Divider().padding(0).padding(.bottom, 9)
+                            }.padding(0).tabItem {
+                                Label("Hourly", systemImage: "chart.xyaxis.line")
+                                
+                            }
+                            VStack(spacing: 0){
+                                HistoricalChartView(viewModel: viewModel).frame(height: 435).padding(0)
+                                Divider().padding(0).padding(.bottom, 9)
+                            }.padding(0).tabItem {
+                                Label("Historical", systemImage: "clock")
+                            }
                             
-                            HourlyChartView(viewModel: viewModel).tag(0)
-                                .tabItem {
-                                    Label("Hourly", systemImage: "chart.xyaxis.line")
-                                }
-                            
-                            HistoricalChartView(viewModel: viewModel).tag(1)
-                                .tabItem {
-                                    Label("Historical", systemImage: "clock")
-                                }
 
-                        }.frame(height: 500).padding(.top, 0).padding(0)
-                        StockPortfolioView(viewModel: viewModel, pf:pf).padding(.top, 20)
-                        StatsView(viewModel: viewModel)
+
+                        }.padding(0).frame(height: 475)
+                        
+                        StockPortfolioView(viewModel: viewModel, pf:pf).padding(.top, 15)
+                        StatsView(viewModel: viewModel).padding(.top, 10)
                         AboutView(viewModel: viewModel, pf: pf, wl:wl)
                         InsightsView(viewModel: viewModel)
                         ScrollView(.vertical){
-                            RecommendationView(viewModel: viewModel).frame(height: 450).padding(0)
-                        }.frame(height: 445).scrollIndicators(.hidden)
+                            RecommendationView(viewModel: viewModel).frame(height: 390).padding(0)
+                        }.frame(height: 380).scrollIndicators(.hidden).padding(.top, 35)
                         
                         ScrollView(.vertical){
-                            SurpriseView(viewModel: viewModel).frame(height: 450).padding(0)
-                        }.frame(height: 445).scrollIndicators(.hidden)
+                            SurpriseView(viewModel: viewModel).frame(height: 390).padding(0)
+                        }.frame(height: 380).scrollIndicators(.hidden).padding(.top, 35)
                         
                         NewsView(viewModel: viewModel)
                     }.padding(0)
@@ -81,6 +87,7 @@ struct StockSearchView: View {
 }
 
 
+
 #Preview {
-    StockSearchView(ticker: "NVDA", viewModel: StockSearchViewModel(symbol: "NVDA"), pf: PortfolioViewModel(), wl: WatchlistViewModel())
+    StockSearchView(ticker: "AAPL", viewModel: StockSearchViewModel(symbol: "AAPL"), pf: PortfolioViewModel(), wl: WatchlistViewModel())
 }

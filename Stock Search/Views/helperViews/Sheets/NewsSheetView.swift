@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NewsSheetView: View {
     @Binding var isPresented: Bool
-    let newsItem : News
+    @Binding var newsItem : News
 
     var body: some View {
         VStack {
@@ -33,7 +33,7 @@ struct NewsSheetView: View {
                     Text(newsItem.source)
                         .font(.title)
                         .fontWeight(.bold)
-                    Text(Date(timeIntervalSince1970: TimeInterval(newsItem.datetime)).formatted(.dateTime.month(.wide).day().year())).font(.caption).foregroundColor(.secondary).padding(.bottom, 6)
+                    Text(Date(timeIntervalSince1970: TimeInterval(newsItem.datetime)).formatted(.dateTime.month(.wide).day().year())).font(.subheadline).fontWeight(.medium).foregroundColor(.secondary).padding(.bottom, 8)
         
                     Divider()
                     
@@ -47,20 +47,20 @@ struct NewsSheetView: View {
                     HStack{
                         Text("For more details click").foregroundStyle(.secondary).font(.footnote)
                         Link("here ", destination: URL(string: newsItem.url)!).font(.footnote)
-                    }
+                    }.padding(.bottom, 10)
                     
                     HStack{
                         Button(action: shareOnTwitter) {
                             Image("tw").resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(width: 40, height: 40)
+                                .frame(width: 50, height: 50)
                                 .foregroundColor(.white)
                         }
 
                         Button(action: shareOnFacebook) {
                             Image("fb").resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(width: 40, height: 40)
+                                .frame(width: 50, height: 50)
                                 .foregroundColor(.white)
                         }
                     }
@@ -89,5 +89,5 @@ struct NewsSheetView: View {
 }
 
 #Preview {
-    NewsSheetView(isPresented: .constant(false), newsItem: mockNews[0])
+    NewsSheetView(isPresented: .constant(false), newsItem: .constant(mockNews[0]))
 }

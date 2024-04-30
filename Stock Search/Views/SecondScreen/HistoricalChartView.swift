@@ -11,7 +11,7 @@ struct HistoricalChartView: View {
     @StateObject var viewModel: StockSearchViewModel
     var body: some View {
         if(!viewModel.isLoading){
-            WebView(response: ChartJSData(stock: viewModel.symbol, chartType: "stock", chartResponse: viewModel.Chart))
+            WebView(response: ChartJSData(stock: viewModel.symbol, chartType: "stock", chartResponse: viewModel.Chart)).padding(.top, 0)
         }
     }
 }

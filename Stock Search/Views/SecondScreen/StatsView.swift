@@ -10,36 +10,33 @@ import SwiftUI
 struct StatsView: View {
     @StateObject var viewModel: StockSearchViewModel
     var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
+        VStack(alignment: .leading, spacing: 12) {
                     Text("Stats")
-                        .font(.title3)
-                        .padding(.vertical)
+                .font(.title2).fontWeight(.regular)
             HStack{
-                VStack{
+                VStack(spacing: 12){
                     HStack {
-                        Text("High Price:  ").font(.footnote).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        Text("High Price:  ").font(.footnote).fontWeight(.semibold)
                         Text("$\(viewModel.quote.h, specifier: "%.2f")").font(.footnote)
                         Spacer()
                     }
-                    Spacer()
                     HStack {
-                        Text("Low Price: ").font(.footnote).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                        Text("$\(viewModel.quote.h, specifier: "%.2f")").font(.footnote)
+                        Text("Low Price: ").font(.footnote).fontWeight(.semibold)
+                        Text("$\(viewModel.quote.l, specifier: "%.2f")").font(.footnote)
                         Spacer()
                     }
                     
                    
                 }
-                VStack{
+                VStack(spacing: 12){
                     HStack {
-                        Text("Open Price: ").font(.footnote).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        Text("Open Price: ").font(.footnote).fontWeight(.semibold)
                         Text("$\(viewModel.quote.o, specifier: "%.2f")").font(.footnote)
                         Spacer()
                     }
-                    Spacer()
                     HStack {
-                        Text("Prev. Close: ").font(.footnote).fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                        Text("$\(viewModel.quote.o, specifier: "%.2f")").font(.footnote)
+                        Text("Prev. Close: ").font(.footnote).fontWeight(.semibold)
+                        Text("$\(viewModel.quote.pc, specifier: "%.2f")").font(.footnote)
                         Spacer()
                     }
                 }

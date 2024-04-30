@@ -112,6 +112,10 @@ final class PortfolioViewModel: ObservableObject{
         return self.portfolio.stocks.firstIndex(where: {$0.ticker == symbol})
     }
     
+    func getStock(symbol: String) -> PortfolioStock?{
+        return self.portfolio.stocks.first(where: {$0.ticker == symbol})
+    }
+    
     
     
     func fetchPortfolio() {

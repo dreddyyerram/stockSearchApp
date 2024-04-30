@@ -29,8 +29,8 @@ final class StockSearchViewModel: ObservableObject{
     
     init(symbol: String){
         self.symbol = symbol
-//        self.testData()
-        self.fetchData()
+        self.testData()
+//        self.fetchData()
     }
     
     func fetchData(){
@@ -63,7 +63,6 @@ final class StockSearchViewModel: ObservableObject{
                         DispatchQueue.main.async {
                             switch result {
                             case .success(let chartData):
-                                print(chartData)
                                 self.hourlyChart = chartData
                             case .failure(let error):
                                 self.errorMessage = error.localizedDescription

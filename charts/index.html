@@ -222,8 +222,13 @@
                         }
                     }
                 },
+                navigation: {
+                    buttonOptions: {
+                        enabled: true
+                    }
+                },
                 exporting: {
-                    enabled: false
+                    enabled: true
                 },
                 series: [{
                     name: 'Strong Buy',
@@ -291,6 +296,11 @@
                         }, '<p style="font-size: x-small">'+ this.x[0] + "<br/>" + this.x[1] + '</P>');
                     },
                     valueDecimals: 2,
+                },
+                navigation: {
+                    buttonOptions: {
+                        enabled: true
+                    }
                 },
                 series: [
                     {

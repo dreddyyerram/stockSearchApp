@@ -10,48 +10,48 @@ import SwiftUI
 struct InsightsView: View {
     @StateObject var viewModel: StockSearchViewModel
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            HStack{Text("Insights").font(.title3).fontWeight(.medium).padding(0)}.padding(0)
+        VStack(alignment: .leading, spacing: 10) {
+            HStack{Text("Insights").font(.title2).fontWeight(.regular)}.padding(.bottom,0)
             HStack{
                 Spacer()
-                Text("Insider Sentiments").font(.title3)
+                Text("Insider Sentiments").font(.title2).fontWeight(.regular)
                 Spacer()
-            }.padding()
-            HStack {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("Apple Inc").fontWeight(.medium).font(.subheadline)
+            }.padding(.bottom, 10)
+            HStack(spacing:25){
+                VStack(alignment: .leading, spacing: 10) {
+                    Text(viewModel.details.name).fontWeight(.bold).font(.subheadline)
                     Divider()
-                    Text("Total").fontWeight(.medium).font(.subheadline)
+                    Text("Total").fontWeight(.bold).font(.subheadline)
                     Divider()
-                    Text("Positive").fontWeight(.medium).font(.subheadline)
+                    Text("Positive").fontWeight(.bold).font(.subheadline)
                     Divider()
-                    Text("Negative").fontWeight(.medium).font(.subheadline)
+                    Text("Negative").fontWeight(.bold).font(.subheadline)
                     Divider()
                 }
-                Spacer()
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("MSPR").fontWeight(.medium).font(.subheadline)
+                
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("MSPR").fontWeight(.bold).font(.subheadline)
                     Divider()
-                    Text("\(viewModel.insights.msprPositive + viewModel.insights.msprNegative, specifier: "%.2f")").font(.subheadline)
+                    Text("\(viewModel.insights.msprPositive + viewModel.insights.msprNegative, specifier: "%.2f")").font(.subheadline).fontWeight(.regular)
                     Divider()
-                    Text("\(viewModel.insights.msprPositive, specifier: "%.2f")").font(.subheadline)
+                    Text("\(viewModel.insights.msprPositive, specifier: "%.2f")").font(.subheadline).fontWeight(.regular)
                     Divider()
-                    Text("\(viewModel.insights.msprNegative, specifier: "%.2f")").font(.subheadline)
-                    Divider()
-                }
-                Spacer()
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("Change").fontWeight(.medium).font(.subheadline)
-                    Divider()
-                    Text("\(viewModel.insights.changePositive + viewModel.insights.changeNegative, specifier: "%.2f")").font(.subheadline)
-                    Divider()
-                    Text("\(viewModel.insights.changePositive, specifier: "%.2f")").font(.subheadline)
-                    Divider()
-                    Text("\(viewModel.insights.changeNegative, specifier: "%.2f")").font(.subheadline)
+                    Text("\(viewModel.insights.msprNegative, specifier: "%.2f")").font(.subheadline).fontWeight(.regular)
                     Divider()
                 }
+                
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("Change").fontWeight(.bold).font(.subheadline)
+                    Divider()
+                    Text("\(viewModel.insights.changePositive + viewModel.insights.changeNegative, specifier: "%.2f")").font(.subheadline).fontWeight(.regular)
+                    Divider()
+                    Text("\(viewModel.insights.changePositive, specifier: "%.2f")").font(.subheadline).fontWeight(.regular)
+                    Divider()
+                    Text("\(viewModel.insights.changeNegative, specifier: "%.2f")").font(.subheadline).fontWeight(.regular)
+                    Divider()
+                }.padding(.trailing,0)
             }
-        }.padding(.horizontal)
+        }.padding(.leading)
     }
 }
 

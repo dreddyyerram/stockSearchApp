@@ -220,11 +220,53 @@ let mockStockDetails = StockDetails(name: "Apple Inc.", ticker: "AAPL", exchange
 let mockPeers = ["GOOGL", "MSFT", "AMZN", "FB"]
 
 
-let mockNews = [
-    News(id: 1, category: "Technology", datetime: 1713617340, headline: "Apple Inc. (AAPL) stock rises 10% in a week", image: "https://media.zenfs.com/en/ibd.com/f287385a5f84c1d1e13191d4ae92d9fb", related: "AAPL", source: "CNBC", summary: "Apple Inc. (AAPL) stock rises 10% in a week", url: "https://apple.com"),
-    News(id: 2, category: "Technology", datetime: 1713613842, headline: "Apple Inc. (AAPL) stock rises 10% in a week", image: "https://media.zenfs.com/en/moneywise_327/c0853b6f53fc22b1319ab54211a49414", related: "AAPL", source: "CNBC", summary: "Apple Inc. (AAPL) stock rises 10% in a week", url: "https://apple.com"),
-    News(id: 3, category: "Technology", datetime: 1713611760, headline: "Apple Inc. (AAPL) stock rises 10% in a week", image: "https://g.foolcdn.com/editorial/images/773226/friends-laughing-over-drinks-on-a-boat-soda-bottle.jpg", related: "AAPL", source: "CNBC", summary: "Apple Inc. (AAPL) stock rises 10% in a week sklcnakc kmlck smaLcm lma ;lmcl;msa;d lkcmlkadmslkcm klnksldnmclkam kncz kldncx klnzsdkl sdmklsdmlk; ldsn nkn sdnmvk dmsac msla;  mlkmdc;lasm;lcm l;ml;dmcl;amD:L ml;mcl;adml;dcm ;lmcla;dsmcls;a ;lmsl;dml;s l;ml;d  d vdmakmldma cdm;lsakdmd;slacm;lka d;lsmc;ldmdsl; l;msd;lmvlds dl;dsmldmdl;ml;dmvl;dml;dsm", url: "https://apple.com")
+var mockNews: [News] = [
+    News(
+        id: 127299418,
+        category: "company",
+        datetime: 1714403592,
+        headline: "Apple shares rise 3% after analyst upgrade to chip prospects, phone replacement cycle",
+        image: "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/458990823/image_458990823.jpg?io=getty-c-w1536",
+        related: "AAPL",
+        source: "Finnhub",
+        summary: "Shares in Apple Inc were up 3% on Monday after a well-known analyst at Bernstein Societe Generale Group upgraded the stock to an outperform rating, pointing to the prospects for phone replacement...",
+        url: "https://finnhub.io/api/news?id=090d64fe4824f85c12e0b5a583fc272e5a18b56f6f741f2601349d5a4dea27c0"
+    ),
+    News(
+        id: 127299406,
+        category: "company",
+        datetime: 1714403454,
+        headline: "Wall Street stocks gain as investors focus on Fed moves",
+        image: "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/1359528534/image_1359528534.jpg?io=getty-c-w1536",
+        related: "AAPL",
+        source: "Finnhub",
+        summary: "U.S. stocks rose on Monday, with sharp gains for Tesla and Apple leading the way, as investors looked toward what the Federal Reserve would say about the interest rate outlook after its policy meeting...",
+        url: "https://finnhub.io/api/news?id=562e179c255b2263d991305adf57e79b314ab2c27a68134a94850c3c39409bae"
+    ),
+    News(
+        id: 127299176,
+        category: "company",
+        datetime: 1714402914,
+        headline: "US stocks gain at top data-heavy week amid suspected yen intervention",
+        image: "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/160487655/image_160487655.jpg?io=getty-c-w1536",
+        related: "AAPL",
+        source: "Finnhub",
+        summary: "U.S. stocks gained ground on Monday and the yen surged amid suspected intervention as investors embarked on what promises to be an action-packed week. All three major U.S. stock indexes...",
+        url: "https://finnhub.io/api/news?id=0c9921fa84a1d84fdf39c1c5588ae50dc0d0d29e856849324c4b2928731d76b2"
+    ),
+    News(
+        id: 127296888,
+        category: "company",
+        datetime: 1714396200,
+        headline: "Wall Street Lunch: Is This Market A Micro Machine?",
+        image: "https://static.seekingalpha.com/cdn/s3/uploads/getty_images/1471299072/image_1471299072.jpg?io=getty-c-w1536",
+        related: "AAPL",
+        source: "SeekingAlpha",
+        summary: "The market may not be as tethered to the Fed as people think. The yen's freefall prompts intervention to support it. Apple gets an upgrade ahead of earnings.",
+        url: "https://finnhub.io/api/news?id=8ffdfc2b88053bf722c3ede432b3778b6da1a947de41ce0bd4b5927a32dea3f3"
+    )
 ]
+
 
 let mockChartResponse = ChartResponse(
     ticker: "AAPL",

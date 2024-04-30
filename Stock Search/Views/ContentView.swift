@@ -16,52 +16,52 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            
-            List{
-                if !symbol.isEmpty {
-                    AutoCompleteView(AVC: AVC, symbol: $symbol, pf:pf, wl:wl)
-                }
-                else{
-                    Section{
-                        HStack{
-                            Text(Date().formatted(.dateTime.month(.wide).day().year()))
-                                .font(.title)
-                                .foregroundColor(.secondary)
-                                .fontWeight(.bold).padding(4)
+            if(pf.isLoading || wl.isLoading){
+                ProgressView("Fetching Data...")
+            }
+            else{
+                List{
+                    if !symbol.isEmpty {
+                        AutoCompleteView(AVC: AVC, symbol: $symbol, pf:pf, wl:wl)
+                    }
+                    else{
+                        Section{
+                            HStack{
+                                Text(Date().formatted(.dateTime.month(.wide).day().year()))
+                                    .font(.title)
+                                    .foregroundColor(.secondary)
+                                    .fontWeight(.bold).padding(4)
+                            }
+                        }
+                        
+                        PortfolioView(pf: pf, wl: wl).onAppear(perform: {
+                            pf.updateQuotesForPortfolio()
+                        })
+                        
+                        
+                        WatchlistView(pf: pf, wl: wl).onAppear(perform: {
+                            wl.updateQuotesForWatchlist()
+                        })
+                        
+                        Section{
+                            HStack {
+                                Spacer()
+                                Link("Powered by Finnhub.io", destination: URL(string: "https://www.finnhub.io")!)
+                                    .foregroundColor(.secondary).font(.footnote)
+                                Spacer()
+                            }
                         }
                     }
                     
-                    PortfolioView(pf: pf, wl: wl).onAppear(perform: {
-                        pf.updateQuotesForPortfolio()
-                    })
-                    
-                    
-                    WatchlistView(pf: pf, wl: wl).onAppear(perform: {
-                        wl.updateQuotesForWatchlist()
-                    })
-                    
-                    Section{
-                        HStack {
-                            Spacer()
-                            Link("Powered by Finnhub.io", destination: URL(string: "https://www.finnhub.io")!)
-                                .foregroundColor(.secondary)
-                            Spacer()
-                        }
-                    }
-                }
-                
-            }.toolbar{
-                EditButton()
-            }.navigationTitle("Stocks").searchable(text: $symbol, placement: .navigationBarDrawer(displayMode: .always))
-            
+                }.toolbar{
+                    EditButton()
+                }.navigationTitle("Stocks").searchable(text: $symbol, placement: .navigationBarDrawer(displayMode: .always))
+            }
             
         }.onChange(of: symbol) {
             oldState, newState in
             AVC.search(query: newState)
         }
-            
-    
-        
         
     }
 }

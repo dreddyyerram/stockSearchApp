@@ -91,26 +91,26 @@ struct WebView: View {
                      resourceName: "index",
                      resourceType: "html",
                      subdirectory: "charts")
-            .onLoadStatusChanged { loading, error in
-                if loading {
-                    self.title = "Loading…"
-                    print("Loading")
-                }
-                else {
-                    if let error = error {
-                        self.error = error
-                        if self.title.isEmpty {
-                            self.title = "Error"
-                        }
-                    }
-                    else if self.title.isEmpty {
-                        self.title = "Some Place"
-                    }
-                    print("Done")
-                }
-                
-            }
-        
+//            .onLoadStatusChanged { loading, error in
+//                if loading {
+//                    self.title = "Loading…"
+//                    print("Loading")
+//                }
+//                else {
+//                    if let error = error {
+//                        self.error = error
+//                        if self.title.isEmpty {
+//                            self.title = "Error"
+//                        }
+//                    }
+//                    else if self.title.isEmpty {
+//                        self.title = "Some Place"
+//                    }
+//                    print("Done")
+//                }
+//                
+//            }
+//        
     }
 }
 

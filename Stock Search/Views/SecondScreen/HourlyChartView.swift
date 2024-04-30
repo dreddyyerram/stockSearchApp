@@ -11,7 +11,7 @@ struct HourlyChartView: View {
     @StateObject var viewModel: StockSearchViewModel
     var body: some View {
         if(!viewModel.isLoading){
-            WebView(response: ChartJSData(stock: viewModel.symbol, chartType: "hourly", chartResponse: viewModel.hourlyChart, quote: viewModel.quote))
+            WebView(response: ChartJSData(stock: viewModel.symbol, chartType: "hourly", chartResponse: viewModel.hourlyChart, quote: viewModel.quote)).padding(.top, 0)
         }
     }
 }
