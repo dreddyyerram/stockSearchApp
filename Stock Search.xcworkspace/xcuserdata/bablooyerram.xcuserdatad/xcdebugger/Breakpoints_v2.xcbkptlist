@@ -275,7 +275,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "1F5A9BB8-9B36-437C-90E2-1FA64B54051D"
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Stock Search/Views/SecondScreen/StockSearchView.swift"
@@ -317,6 +317,70 @@
                   offsetFromSymbolStart = "1292">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E00198F8-9F47-4DA5-926A-6B9842AD81BA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Stock Search/Views/SecondScreen/StockSearchView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "E00198F8-9F47-4DA5-926A-6B9842AD81BA - 65d5b7f1fdfe80f8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in Stock_Search.StockSearchView.body.getter : some"
+                  moduleName = "Stock Search"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bablooyerram/Documents/USC/Academics/Projects/stockSearchApp/Stock%20Search/Views/SecondScreen/StockSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "476">
+               </Location>
+               <Location
+                  uuid = "E00198F8-9F47-4DA5-926A-6B9842AD81BA - 65d5b7f1fdfe80f8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in Stock_Search.StockSearchView.body.getter : some"
+                  moduleName = "Stock Search"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bablooyerram/Documents/USC/Academics/Projects/stockSearchApp/Stock%20Search/Views/SecondScreen/StockSearchView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "472">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DA18336B-6D68-4056-8306-899422DF6795"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Stock Search/Views/SecondScreen/StockSearchView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

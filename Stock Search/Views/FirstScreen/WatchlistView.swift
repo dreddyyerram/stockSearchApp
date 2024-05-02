@@ -17,7 +17,7 @@ struct WatchlistView: View {
                         return viewDimensions[.listRowSeparatorLeading] + 190}
                 }.onMove(perform: { indices, newOffset in
                     wl.move(fromOffsets: indices, toOffset: newOffset)
-                }).onDelete(perform: { indexSet in
+                }).onDelete(perform: { indexSet in 
                     wl.delete(atOffsets: indexSet)
                 })
             }
@@ -49,7 +49,7 @@ struct WatchlistRow: View {
                         if stock.quote.d > 0{
                             HStack{
                                 Image(systemName: "arrow.up.right").font(.title3).padding(.trailing, 5)
-                                Text("$\(stock.quote.d.formatted()) (\(String(format: "%.2f", stock.quote.dp))%)")
+                                Text("$\(String(format: "%.2f", stock.quote.d)) (\(String(format: "%.2f", stock.quote.dp))%)")
                                     .font(.headline)
                                 
                             }.foregroundColor(.green)
@@ -57,7 +57,7 @@ struct WatchlistRow: View {
                         else if stock.quote.d < 0{
                             HStack{
                                 Image(systemName: "arrow.down.right").font(.title3).padding(.trailing, 5)
-                                Text("$\(stock.quote.d.formatted()) (\(String(format: "%.2f", stock.quote.dp))%)")
+                                Text("$\(String(format: "%.2f", stock.quote.d)) (\(String(format: "%.2f", stock.quote.dp))%)")
                                     .font(.headline)
                                 
                             }.foregroundColor(.red )
@@ -65,7 +65,7 @@ struct WatchlistRow: View {
                         else  {
                             HStack{
                                 Image(systemName:"minus").font(.title3).padding(.trailing, 5)
-                                Text("$\(stock.quote.d.formatted()) (\(String(format: "%.2f", stock.quote.dp))%)")
+                                Text("$\(String(format: "%.2f", stock.quote.d)) (\(String(format: "%.2f", stock.quote.dp))%)")
                                     .font(.headline)
                                 
                             }.foregroundColor(.gray)

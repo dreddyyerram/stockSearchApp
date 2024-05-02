@@ -96,7 +96,7 @@ struct PurchaseView: View {
     func sell(){
         let stockIndex = pf.portfolio.stocks.firstIndex(where: {$0.ticker == viewModel.symbol}) ?? -1
         let shares = Int(numberOfShares) ?? 0
-        if shares == 0{
+        if (shares == 0){
             showToast = true
             ToastMessage = "Please enter a valid amount"
         }
@@ -104,16 +104,20 @@ struct PurchaseView: View {
             showToast = true
             ToastMessage = "Cannot buy non-positive shares"
         }
-        else if shares > pf.portfolio.stocks[stockIndex].quantity {
+        else  if (stockIndex == -1 || shares > pf.portfolio.stocks[stockIndex].quantity)  {
             showToast = true
             ToastMessage = "Not enough shares to sell"
         }
         else{
             
             self.SuccessFlag = true
-            self.SuccessMessage = "You have successfully sold \(numberOfShares) shares of \(viewModel.symbol))"
+            self.SuccessMessage = "You have successfully sold \(numberOfShares) shares of \(viewModel.symbol)"
             pf.sellStock(stock: viewModel.details, quote: viewModel.quote, quantity: shares)
             
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            showToast = false
+            ToastMessage = ""
         }
         
     }
@@ -137,6 +141,10 @@ struct PurchaseView: View {
             self.SuccessFlag = true
             self.SuccessMessage = "You have successfully bought \(numberOfShares) shares of \(viewModel.symbol)"
             pf.buyStock(stock: viewModel.details, quote: viewModel.quote, quantity: shares)
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            showToast = false
+            ToastMessage = ""
         }
     }
 }

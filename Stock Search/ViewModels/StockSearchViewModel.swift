@@ -29,8 +29,8 @@ final class StockSearchViewModel: ObservableObject{
     
     init(symbol: String){
         self.symbol = symbol
-        self.testData()
-//        self.fetchData()
+//        self.testData()
+        self.fetchData()
     }
     
     func fetchData(){
@@ -98,7 +98,7 @@ final class StockSearchViewModel: ObservableObject{
             DispatchQueue.main.async {
                 switch result {
                 case .success(let data):
-                    self.news = data.filter({ self.isValidNews(news: $0)})
+                    self.news = Array(data.filter{self.isValidNews(news: $0)}.prefix(20))
                 case .failure(let error):
                     self.errorMessage = error.localizedDescription
                 }

@@ -2,7 +2,7 @@
 //  StockPortfolioView.swift
 //  Stock Search
 //
-//  Created by Babloo Yerram on 4/19/24.
+//  Created by Yerram on 4/19/24.
 //
 
 import SwiftUI
@@ -12,6 +12,7 @@ struct StockPortfolioView: View {
     @StateObject var pf : PortfolioViewModel
     @State private var doTrade = false
     @State var stock: PortfolioStock?
+    @State var Change: Double = 0
     
     var body: some View {
         
@@ -38,18 +39,23 @@ struct StockPortfolioView: View {
                         }
                         HStack {
                             Text("Change:").fontWeight(.semibold).font(.footnote)
-                            Text("$\(stock.change, specifier: "%.2f")")
-                                .foregroundColor(stock.change >= 0 ? .green : .red).font(.footnote)
+                            
+                            Text("$\(Change, specifier: "%.2f")")
+                                .foregroundColor(Change > 0 ? .green : Change < 0 ? .red: .black).font(.footnote)
                             Spacer()
+                            
+                            
                         }
                         HStack {
                             Text("Market Value:").fontWeight(.semibold).font(.footnote)
-                            Text("$\(stock.mrkt_value, specifier: "%.2f")")
-                                .foregroundColor(stock.change >= 0 ? .green : .red).font(.footnote)
+                            Text("$\(viewModel.quote.c * Double(stock.quantity), specifier: "%.2f")")
+                                .foregroundColor(Change > 0 ? .green : Change < 0 ? .red: .black).font(.footnote)
                             Spacer()
                         }
         
-                    }
+                    }.onAppear(perform: {
+                        Change = (viewModel.quote.c * Double(stock.quantity)) - stock.total_price
+                    })
                 }
                 else{
                     VStack(alignment: .leading){

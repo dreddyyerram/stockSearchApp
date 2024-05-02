@@ -22,8 +22,8 @@ struct SuccessView: View {
                     
                     Text(message)
                         .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.center).padding(.horizontal, 30)
+                        .foregroundColor(.white).font(.subheadline)
+                        .multilineTextAlignment(.center).padding(.horizontal, 25)
                     
                     Spacer()
                     
@@ -45,5 +45,5 @@ struct SuccessView: View {
 }
 
 #Preview {
-    SuccessView(isPresented: .constant(true), parentPresented: .constant(true), message: "Success Message")
+    SuccessView(isPresented: .constant(true), parentPresented: .constant(true), message: "you have successfully sold 11 shares of NVDA")
 }

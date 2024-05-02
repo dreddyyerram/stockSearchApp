@@ -38,6 +38,18 @@ final class PortfolioViewModel: ObservableObject{
     }
     
     
+    func updateStockData(symbol: String, quote: Quote){
+        let index = getStockIndex(symbol: symbol) ?? -1
+        if index == -1 {
+            return
+        }
+        portfolio.stocks[index].current_price = quote.c
+        portfolio.stocks[index].avg_price = portfolio.stocks[index].total_price / Double(portfolio.stocks[index].quantity)
+        portfolio.stocks[index].change = quote.c - portfolio.stocks[index].avg_price
+        portfolio.stocks[index].mrkt_value = quote.c * Double(portfolio.stocks[index].quantity)
+        portfolio.stocks[index].percent = (portfolio.stocks[index].change / portfolio.stocks[index].avg_price) * 100
+    }
+    
     func syncPortfolio(){
         let url = Constants.baseUrl.appending("/mongoDb/HW3/Portfolio?user=User")
         AF.request(url, method: .put, parameters: portfolio, encoder: JSONParameterEncoder.default).response { response in
@@ -104,8 +116,18 @@ final class PortfolioViewModel: ObservableObject{
 
         dispatchGroup.notify(queue: .main) {
             self.isLoading = false
+            self.calculateNetworth()
             print("All quotes updated")
         }
+    }
+    
+    func calculateNetworth(){
+        var networth = 0.0
+        for stock in portfolio.stocks {
+            networth += stock.mrkt_value
+        }
+        networth += portfolio.balance
+        portfolio.networth = networth
     }
     
     func getStockIndex(symbol: String) -> Int?{
@@ -113,8 +135,11 @@ final class PortfolioViewModel: ObservableObject{
     }
     
     func getStock(symbol: String) -> PortfolioStock?{
-        return self.portfolio.stocks.first(where: {$0.ticker == symbol})
+        let stock = self.portfolio.stocks.first(where: {$0.ticker == symbol})
+        return stock
+        
     }
+    
     
     
     

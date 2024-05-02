@@ -53,10 +53,6 @@
                 },
                 legend:{ enabled:false},
                 title:{
-                    enabled: false,
-                    text: null
-                },
-                subtitle: {
                     useHtml: true,
                     text: `<b style="color: #939292">${stock} Hourly Price Variation</b>`,
                 },
@@ -104,7 +100,8 @@
                     selected: 2
                 },
                 title: {
-                    text: `${stock} Historical`
+                    text: `${stock} Historical`,
+                    useHTML: true
                 },
                 subtitle: {
                     text: 'With SMA and Volume by Price technical indicators'

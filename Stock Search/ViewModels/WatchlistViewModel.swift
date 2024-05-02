@@ -11,7 +11,7 @@ import SwiftyJSON
 
 final class WatchlistViewModel: ObservableObject{
     
-    @Published var watchlist: Watchlist = mockWatchlist
+    @Published var watchlist: Watchlist = Watchlist(stocks: [], user: "User")
     @Published var isLoading = false;
     @Published var errorMessage: String?
     var network = Network()
@@ -19,6 +19,12 @@ final class WatchlistViewModel: ObservableObject{
     
     init(){
         self.fetchWatchlist()
+    }
+    
+    init(fetch: Bool){
+        if fetch{
+            self.fetchWatchlist()
+        }
     }
     
     func move(fromOffsets: IndexSet, toOffset: Int){

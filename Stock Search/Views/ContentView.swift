@@ -12,56 +12,62 @@ struct ContentView: View {
     @State private var symbol = ""
     @StateObject var AVC = AutoCompleteViewModel()
     @StateObject var pf = PortfolioViewModel()
-    @StateObject var wl = WatchlistViewModel()
+    @StateObject var wl = WatchlistViewModel(fetch: false)
     
     var body: some View {
-        NavigationView {
-            if(pf.isLoading || wl.isLoading){
-                ProgressView("Fetching Data...")
-            }
-            else{
-                List{
-                    if !symbol.isEmpty {
-                        AutoCompleteView(AVC: AVC, symbol: $symbol, pf:pf, wl:wl)
+       
+        
+            NavigationView {
+
+                VStack{
+                    if(pf.isLoading || wl.isLoading){
+                        ProgressView("Fetching Data...")
                     }
                     else{
-                        Section{
-                            HStack{
-                                Text(Date().formatted(.dateTime.month(.wide).day().year()))
-                                    .font(.title)
-                                    .foregroundColor(.secondary)
-                                    .fontWeight(.bold).padding(4)
+                        
+                        List{
+                            if !symbol.isEmpty {
+                                AutoCompleteView(AVC: AVC, symbol: $symbol, pf:pf, wl:wl)
                             }
-                        }
-                        
-                        PortfolioView(pf: pf, wl: wl).onAppear(perform: {
-                            pf.updateQuotesForPortfolio()
-                        })
-                        
-                        
-                        WatchlistView(pf: pf, wl: wl).onAppear(perform: {
-                            wl.updateQuotesForWatchlist()
-                        })
-                        
-                        Section{
-                            HStack {
-                                Spacer()
-                                Link("Powered by Finnhub.io", destination: URL(string: "https://www.finnhub.io")!)
-                                    .foregroundColor(.secondary).font(.footnote)
-                                Spacer()
+                            else{
+                                Section{
+                                    HStack{
+                                        Text(Date().formatted(.dateTime.month(.wide).day().year()))
+                                            .font(.title)
+                                            .foregroundColor(.secondary)
+                                            .fontWeight(.bold).padding(4)
+                                    }
+                                }
+                                
+                                PortfolioView(pf: pf, wl: wl)
+                                
+                                
+                                WatchlistView(pf: pf, wl: wl)
+                                
+                                Section{
+                                    HStack {
+                                        Spacer()
+                                        Link("Powered by Finnhub.io", destination: URL(string: "https://www.finnhub.io")!)
+                                            .foregroundColor(.secondary).font(.footnote)
+                                        Spacer()
+                                    }
+                                }
                             }
+                            
+                        }.onChange(of: symbol) {
+                            oldState, newState in
+                            AVC.search(query: newState)
+                        }.toolbar{
+                            EditButton()
                         }
                     }
-                    
-                }.toolbar{
-                    EditButton()
-                }.navigationTitle("Stocks").searchable(text: $symbol, placement: .navigationBarDrawer(displayMode: .always))
+                }.searchable(text: $symbol, placement: .navigationBarDrawer(displayMode: .always))
+                .onAppear(perform: {
+                        pf.fetchPortfolio()
+                        wl.fetchWatchlist()
+                    }).navigationTitle("Stocks")
+                
             }
-            
-        }.onChange(of: symbol) {
-            oldState, newState in
-            AVC.search(query: newState)
-        }
         
     }
 }

@@ -118,5 +118,5 @@ struct WebView: View {
 
 
 #Preview {
-    WebView(response: ChartJSData(stock: "AAPL", chartType: "hourly", chartResponse: mockChartResponse))
+    WebView(response: ChartJSData(stock: "AAPL", chartType: "stock", chartResponse: mockChartResponse))
 }

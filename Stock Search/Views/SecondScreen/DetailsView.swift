@@ -21,7 +21,7 @@ struct DetailsView: View {
                 Text("$\(String(format: "%.2f", viewModel.quote.c))").font(.largeTitle).fontWeight(.medium).padding(0)
                 HStack{
                     Image(systemName: viewModel.quote.d >= 0 ? "arrow.up.right" : "arrow.down.right")
-                    Text("$\(viewModel.quote.d.formatted()) (\(String(format: "%.2f", viewModel.quote.dp))%)")
+                    Text("$\(viewModel.quote.d, specifier: "%.2f") (\(String(format: "%.2f", viewModel.quote.dp))%)")
                         .font(.title3)
                     
                 }.foregroundColor(viewModel.quote.d >= 0 ? .green : .red ).padding(.horizontal, 5)
